@@ -3,6 +3,35 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!form) return;
 
   const submitButton = form.querySelector('button[type="submit"]');
+  const successModal = document.getElementById('success-modal');
+  const closeModalButton = document.getElementById('success-modal-close');
+
+  const showSuccessModal = () => {
+    if (!successModal) return;
+    successModal.classList.add('is-visible');
+    document.body.classList.add('modal-open');
+    closeModalButton?.focus();
+  };
+
+  const hideSuccessModal = () => {
+    if (!successModal) return;
+    successModal.classList.remove('is-visible');
+    document.body.classList.remove('modal-open');
+  };
+
+  closeModalButton?.addEventListener('click', hideSuccessModal);
+
+  successModal?.addEventListener('click', (event) => {
+    if (event.target === successModal) {
+      hideSuccessModal();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      hideSuccessModal();
+    }
+  });
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -24,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error('Falha ao enviar.');
       }
 
-      alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+      showSuccessModal();
       form.reset();
     } catch (error) {
       form.submit();

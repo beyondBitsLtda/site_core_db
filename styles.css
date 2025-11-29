@@ -475,6 +475,75 @@
             font-size: 1.05rem;
         }
 
+        .success-modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: rgba(2, 8, 32, 0.55);
+            backdrop-filter: blur(6px);
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .success-modal.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .success-modal__content {
+            width: min(520px, 100%);
+            background: linear-gradient(145deg, rgba(14, 33, 78, 0.96), rgba(10, 64, 128, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 2rem;
+            color: #eaf3ff;
+            text-align: center;
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .success-modal__icon {
+            display: inline-flex;
+            width: 64px;
+            height: 64px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #4ea8ff, #8b5cf6);
+            color: #0b1d46;
+            font-size: 1.75rem;
+            margin: 0 auto 0.35rem;
+            box-shadow: 0 12px 32px rgba(78, 168, 255, 0.25);
+        }
+
+        .success-modal__content h3 {
+            margin: 0;
+            color: #f7f9ff;
+            font-size: 1.35rem;
+        }
+
+        .success-modal__content p {
+            margin: 0;
+            line-height: 1.6;
+            color: #d5e4ff;
+        }
+
+        .success-modal__close {
+            width: 100%;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
         .form-group {
             margin-bottom: 16px;
         }
