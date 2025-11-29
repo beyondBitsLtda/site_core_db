@@ -6,14 +6,16 @@
     <title>CoreDB - Especialistas em CRM e Relacionamento com o Cliente</title>
     <style>
         :root {
-            --primary: #1d4ed8;
-            --primary-dark: #1b3fa8;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
             --secondary: #0ea5e9;
-            --bg: #0b1224;
+            --bg: #050b16;
             --card: #0f172a;
-            --text: #e2e8f0;
-            --muted: #94a3b8;
+            --card-strong: #111b30;
+            --text: #e9eef8;
+            --muted: #b8c3d4;
             --accent: #22c55e;
+            --warning: #f59e0b;
         }
 
         * {
@@ -24,16 +26,19 @@
 
         body {
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
+            background: radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.12), transparent 22%),
+                        radial-gradient(circle at 80% 0%, rgba(37, 99, 235, 0.16), transparent 25%),
+                        var(--bg);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            text-rendering: optimizeLegibility;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
         header {
@@ -49,16 +54,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 18px 0;
+            padding: 16px 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-weight: 700;
-            font-size: 1.15rem;
+            font-weight: 800;
+            font-size: 1.1rem;
             letter-spacing: 0.5px;
+            color: #fff;
         }
 
         .logo-icon {
@@ -70,7 +76,7 @@
         }
 
         .nav-links {
-            display: flex;
+            display: none;
             align-items: center;
             gap: 24px;
             list-style: none;
@@ -79,7 +85,7 @@
         .nav-links a {
             color: var(--muted);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.2s ease, transform 0.2s ease;
         }
 
@@ -89,23 +95,40 @@
         }
 
         .btn-primary,
-        .btn-outline {
+        .btn-outline,
+        .btn-ghost {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 12px 18px;
             border-radius: 12px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
+            letter-spacing: 0.1px;
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
             border: none;
             cursor: pointer;
         }
 
+        .btn-primary:focus-visible,
+        .btn-outline:focus-visible,
+        .btn-ghost:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
-            box-shadow: 0 20px 60px rgba(16, 63, 233, 0.35);
+            box-shadow: 0 14px 40px rgba(16, 63, 233, 0.4);
         }
 
         .btn-primary:hover {
@@ -113,14 +136,30 @@
         }
 
         .btn-outline {
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.24);
             color: #fff;
-            background: transparent;
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 10px 14px;
+            font-weight: 600;
+        }
+
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid #9cd2ff;
+            outline-offset: 2px;
+            border-color: rgba(156, 210, 255, 0.6);
         }
 
         .pill {
@@ -131,13 +170,16 @@
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.08);
             color: #fff;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
             margin-bottom: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
         }
 
+        .pill strong { color: var(--accent); }
+
         .hero {
-            padding: 120px 0 80px;
+            padding: 96px 0 72px;
             position: relative;
             overflow: hidden;
         }
@@ -170,16 +212,17 @@
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            gap: 48px;
+            grid-template-columns: 1fr;
+            gap: 32px;
             align-items: center;
         }
 
         .headline {
-            font-size: 3rem;
-            line-height: 1.2;
+            font-size: clamp(2.3rem, 4vw + 1rem, 3.2rem);
+            line-height: 1.15;
             margin-bottom: 18px;
             color: #fff;
+            letter-spacing: -0.5px;
         }
 
         .headline strong {
@@ -187,8 +230,8 @@
         }
 
         .subhead {
-            color: var(--muted);
-            font-size: 1.05rem;
+            color: #d7deeb;
+            font-size: 1.02rem;
             margin-bottom: 26px;
         }
 
@@ -219,12 +262,42 @@
             font-weight: 600;
         }
 
-        .hero-card {
-            background: linear-gradient(180deg, rgba(16, 63, 233, 0.1), rgba(14, 165, 233, 0.05));
+        .assurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin: 14px 0 4px;
+        }
+
+        .assurance-card {
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 28px;
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .assurance-card strong { color: #fff; display: block; }
+
+        .assurance-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            background: rgba(34, 197, 94, 0.14);
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, rgba(16, 63, 233, 0.14), rgba(14, 165, 233, 0.08));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px;
             border-radius: 18px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
         }
 
         .hero-card h3 {
@@ -254,9 +327,9 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 18px;
-            margin-top: 26px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 22px;
         }
 
         .stat-card {
@@ -279,21 +352,22 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 72px 0;
             position: relative;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: clamp(1.7rem, 2vw + 1rem, 2.2rem);
             margin-bottom: 12px;
             color: #fff;
+            letter-spacing: -0.2px;
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--muted);
-            max-width: 720px;
+            color: #d2d9e5;
+            max-width: 760px;
             margin: 0 auto 44px;
         }
 
@@ -412,8 +486,8 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 0.95fr;
-            gap: 28px;
+            grid-template-columns: 1fr;
+            gap: 22px;
             align-items: start;
         }
 
@@ -455,6 +529,20 @@
             margin-top: 10px;
         }
 
+        .contact-highlight {
+            display: grid;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(37, 99, 235, 0.08));
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 14px;
+            border-radius: 12px;
+            color: #fff;
+        }
+
+        .contact-highlight small { color: var(--muted); }
+
+        .contact-highlight strong { color: var(--accent); }
+
         .contact-item {
             display: flex;
             align-items: center;
@@ -475,11 +563,105 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        @media (max-width: 980px) {
-            .nav-links { display: none; }
-            .hero-grid { grid-template-columns: 1fr; }
-            .testimonial { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
+        .mobile-cta-bar {
+            position: fixed;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(640px, calc(100% - 24px));
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            background: rgba(7, 14, 28, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 12px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+            z-index: 999;
+        }
+
+        .mobile-cta-bar strong { color: #fff; }
+
+        .mobile-cta-bar p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+        /* 3D Cube */
+        .hero-visual {
+            display: grid;
+            gap: 18px;
+        }
+
+        .cube-stage {
+            position: relative;
+            width: min(320px, 100%);
+            margin: 0 auto;
+            aspect-ratio: 1;
+            perspective: 1200px;
+        }
+
+        .cube-scene {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            transform-style: preserve-3d;
+            animation: spin 18s infinite linear;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cube-scene {
+                animation: none;
+                transform: rotateX(-18deg) rotateY(18deg) rotateZ(6deg);
+            }
+        }
+
+        .cube-face {
+            position: absolute;
+            inset: 15%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.75), rgba(14, 165, 233, 0.65));
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            border-radius: 16px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(6px);
+        }
+
+        .cube-face::after {
+            content: "CoreDB";
+            position: absolute;
+            inset: 20%;
+            display: grid;
+            place-items: center;
+            color: #f8fafc;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .face-front { transform: translateZ(80px); }
+        .face-back { transform: rotateY(180deg) translateZ(80px); }
+        .face-right { transform: rotateY(90deg) translateZ(80px); }
+        .face-left { transform: rotateY(-90deg) translateZ(80px); }
+        .face-top { transform: rotateX(90deg) translateZ(80px); }
+        .face-bottom { transform: rotateX(-90deg) translateZ(80px); }
+
+        @keyframes spin {
+            from { transform: rotateX(-18deg) rotateY(0deg) rotateZ(6deg); }
+            to { transform: rotateX(-18deg) rotateY(360deg) rotateZ(6deg); }
+        }
+
+        @media (max-width: 720px) {
+            .mobile-cta-bar { display: grid; }
+            .hero { padding-bottom: 120px; }
+        }
+
+        @media (min-width: 720px) {
+            .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 48px; }
+            .contact-grid { grid-template-columns: 1fr 0.95fr; gap: 28px; }
+        }
+
+        @media (min-width: 980px) {
+            .nav-links { display: flex; }
+            .testimonial { grid-template-columns: 0.6fr 1.4fr; }
         }
     </style>
 </head>
@@ -514,42 +696,86 @@
     <section class="hero" id="home">
         <div class="container hero-grid">
             <div>
-                <div class="pill">Consultoria | CRM | Relacionamento</div>
+                <div class="pill">Consultoria | CRM | <strong>Segurança</strong></div>
                 <h1 class="headline">Transforme dados em <strong>relacionamentos que fecham negócio</strong>.</h1>
-                <p class="subhead">Equipe especialista em CRM que conecta tecnologia, processos e pessoas para aumentar vendas com previsibilidade e segurança.</p>
+                <p class="subhead">Squad especialista em CRM que une tecnologia, processos e pessoas para aumentar vendas com previsibilidade, governança e confiança.</p>
                 <div class="hero-actions">
                     <a class="btn-primary" href="#contact">Receber proposta personalizada</a>
-                    <a class="btn-outline" href="#services">Ver soluções</a>
+                    <a class="btn-outline" href="#services">Explorar serviços</a>
                 </div>
                 <div class="trust-badges">
-                    <span>+500 projetos entregues</span>
-                    <span>Taxa média de satisfação 95%</span>
-                    <span>Suporte dedicado 24/7</span>
+                    <span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Implantação assistida
+                    </span>
+                    <span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        Integração segura
+                    </span>
+                    <span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        Dashboards auditáveis
+                    </span>
                 </div>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-value">150%</div>
-                        <div class="stat-label">Ticket médio elevado em clientes B2B</div>
+                <div class="assurance-grid">
+                    <div class="assurance-card">
+                        <div class="assurance-icon">LG</div>
+                        <div>
+                            <strong>LGPD & ISO 27001 ready</strong>
+                            <small>Rituais de segurança, backups e acessos revisados.</small>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-value">18 dias</div>
-                        <div class="stat-label">Para ter o CRM pronto para vender</div>
+                    <div class="assurance-card">
+                        <div class="assurance-icon">24h</div>
+                        <div>
+                            <strong>Suporte responsivo</strong>
+                            <small>Canal direto com especialistas para incidentes e dúvidas.</small>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-value">24/7</div>
-                        <div class="stat-label">Suporte de especialistas CoreDB</div>
+                    <div class="assurance-card">
+                        <div class="assurance-icon">ROI</div>
+                        <div>
+                            <strong>Plano de 90 dias</strong>
+                            <small>Metas semanais com entregas visíveis e responsáveis.</small>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="hero-card">
-                <h3>Plano rápido para começar</h3>
-                <p>Mostramos exatamente como vamos integrar seu CRM, treinar o time e gerar resultados nas primeiras semanas.</p>
-                <ul>
-                    <li>Diagnóstico gratuito das suas operações</li>
-                    <li>Roadmap de implantação com metas claras</li>
-                    <li>Garantia de segurança e governança de dados</li>
-                </ul>
-                <a class="btn-primary" href="#contact">Agendar reunião estratégica</a>
+            <div class="hero-visual">
+                <div class="cube-stage" aria-hidden="true">
+                    <div class="cube-scene">
+                        <div class="cube-face face-front"></div>
+                        <div class="cube-face face-back"></div>
+                        <div class="cube-face face-right"></div>
+                        <div class="cube-face face-left"></div>
+                        <div class="cube-face face-top"></div>
+                        <div class="cube-face face-bottom"></div>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <h3>Segurança + resultado para seu CRM</h3>
+                    <p style="color: var(--muted);">Governança de dados, automações e playbooks comerciais que respeitam compliance.</p>
+                    <ul>
+                        <li>Onboarding completo em até 21 dias com rituais semanais.</li>
+                        <li>Integrações com ERP, marketing e BI sem dores de cabeça.</li>
+                        <li>Estratégia de cadência multicanal e automações prontas.</li>
+                        <li>Suporte dedicado e revisões trimestrais.</li>
+                    </ul>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">+42%</div>
+                            <div class="stat-label">crescimento médio em MRR</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">18 dias</div>
+                            <div class="stat-label">para implantar com squad</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">98%</div>
+                            <div class="stat-label">de aprovação dos times</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -656,6 +882,10 @@
                 <h2 class="section-title" style="color:#fff;">Pronto para conversar?</h2>
                 <p class="section-subtitle" style="color:#e5edff;">Conte o que você precisa e enviamos um plano com prazo, investimento e entregáveis. Sem compromisso.</p>
                 <div class="contact-card">
+                    <div class="contact-highlight">
+                        <div><strong>Kickoff em 48h</strong><small>Alinhamento de metas, acesso aos ambientes e próximos passos.</small></div>
+                        <div><strong>Primeiros ganhos em 3 semanas</strong><small>Automações críticas e dashboards de operação ao vivo.</small></div>
+                    </div>
                     <form>
                         <div class="form-group">
                             <label for="name">Nome completo</label>
@@ -722,6 +952,17 @@
             </div>
         </div>
     </section>
+
+    <div class="mobile-cta-bar">
+        <div>
+            <strong>Pronto para acelerar seu CRM?</strong>
+            <p>Equipe CoreDB disponível para um diagnóstico rápido.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn-primary" href="#contact" style="flex:1; justify-content:center;">Falar agora</a>
+            <a class="btn-ghost" href="tel:+5531999999999" style="flex:1; justify-content:center;">Ligar</a>
+        </div>
+    </div>
 
     <footer>
         <div class="container">© 2024 CoreDB • Segurança, transparência e resultados em CRM</div>
