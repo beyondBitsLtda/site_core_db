@@ -487,7 +487,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* --- CUBO (apenas o principal do hero) --- */
+        /* --- CUBO PRINCIPAL (hero) --- */
 
         .hero-visual {
             display: flex;
@@ -507,7 +507,7 @@
 
         @keyframes rotate3d {
             from { transform: rotateX(15deg) rotateY(0deg) rotateZ(0deg); }
-            to { transform: rotateX(375deg) rotateY(360deg) rotateZ(360deg); }
+            to   { transform: rotateX(375deg) rotateY(360deg) rotateZ(360deg); }
         }
 
         .cube-face {
@@ -559,6 +559,15 @@
         .inner-face.top    { transform: rotateX(90deg) translateZ(70px); }
         .inner-face.bottom { transform: rotateX(-90deg) translateZ(70px); }
 
+        /* Cubo menor no contato (escala via wrapper) */
+        .contact-cube-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+            transform: scale(0.7);
+            transform-origin: center top;
+        }
+
         .about-grid {
             display: grid;
             grid-template-columns: minmax(0, 1.4fr);
@@ -572,6 +581,7 @@
             .testimonial { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; }
+            .contact-cube-wrapper { margin-bottom: 16px; }
         }
 
         @media (max-width: 600px) {
@@ -606,6 +616,10 @@
             .inner-face.left   { transform: rotateY(-90deg) translateZ(60px); }
             .inner-face.top    { transform: rotateX(90deg) translateZ(60px); }
             .inner-face.bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+            .contact-cube-wrapper {
+                transform: scale(0.6);
+            }
         }
     </style>
 </head>
@@ -901,6 +915,27 @@
     <section class="contact" id="contact">
         <div class="container contact-grid">
             <div>
+                <!-- 🔹 Cubo menor acima do formulário -->
+                <div class="contact-cube-wrapper">
+                    <div class="hero-cube">
+                        <div class="cube-face front"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face bottom"></div>
+
+                        <div class="inner-cube">
+                            <div class="inner-face front"></div>
+                            <div class="inner-face back"></div>
+                            <div class="inner-face right"></div>
+                            <div class="inner-face left"></div>
+                            <div class="inner-face top"></div>
+                            <div class="inner-face bottom"></div>
+                        </div>
+                    </div>
+                </div>
+
                 <h2 class="section-title" style="color:#fff;">Vamos conversar sobre o seu ambiente?</h2>
                 <p class="section-subtitle" style="color:#e5edff;">
                     Preencha o formulário ou fale diretamente com um dos nossos especialistas. Agendamos um diagnóstico
