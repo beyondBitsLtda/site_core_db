@@ -421,22 +421,33 @@
         }
 
         .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 0.95fr;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 28px;
-            align-items: start;
+            text-align: center;
         }
 
         .contact-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 18px;
-            padding: 22px;
+            padding: 26px;
             color: #fff;
+            width: 100%;
+            max-width: 720px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .contact-card .btn-primary {
+            width: 100%;
+            justify-content: center;
+            padding: 14px;
+            font-size: 1.05rem;
         }
 
         .form-group {
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         label {
@@ -449,12 +460,12 @@
         textarea,
         select {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.25);
             background: rgba(5, 16, 40, 0.55);
             color: #f9fafb;
-            font-size: 1rem;
+            font-size: 1.05rem;
         }
 
         input::placeholder,
@@ -468,7 +479,7 @@
             color: #f9fafb;
         }
 
-        textarea { min-height: 110px; resize: vertical; }
+        textarea { min-height: 120px; resize: vertical; }
 
         .contact-list {
             display: grid;
@@ -573,7 +584,7 @@
             display: flex;
             justify-content: center;
             margin-bottom: 24px;
-            transform: scale(0.7);
+            transform: scale(0.9);
             transform-origin: center top;
         }
 
@@ -593,7 +604,6 @@
             .nav-links { display: none; }
             .hero-grid { grid-template-columns: 1fr; }
             .testimonial { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; }
             .contact-cube-wrapper { margin-bottom: 16px; }
         }
@@ -641,7 +651,12 @@
             .inner-face.bottom { transform: rotateX(-90deg) translateZ(60px); }
 
             .contact-cube-wrapper {
-                transform: scale(0.6);
+                transform: scale(0.75);
+            }
+
+            .testimonial {
+                padding: 24px;
+                gap: 20px;
             }
 
             .testimonial {
