@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitButton = form.querySelector('button[type="submit"]');
   const successModal = document.getElementById('success-modal');
   const closeModalButton = document.getElementById('success-modal-close');
+  const feedback = document.getElementById('form-feedback');
+  const honeypotField = document.getElementById('website');
+
+  // TODO: mover o envio para um backend próprio para proteger os e-mails corporativos.
 
   const showSuccessModal = () => {
     if (!successModal) return;
@@ -33,11 +37,73 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const resetFeedback = () => {
+    if (!feedback) return;
+    feedback.textContent = '';
+    feedback.hidden = true;
+    feedback.classList.remove('is-error', 'is-success');
+  };
+
+  const showFeedback = (message, { isError = true } = {}) => {
+    if (!feedback) return;
+    feedback.textContent = message;
+    feedback.hidden = false;
+    feedback.classList.toggle('is-error', isError);
+    feedback.classList.toggle('is-success', !isError);
+  };
+
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValidPhone = (phone) => {
+    const allowedChars = /^[0-9+()\-\s]+$/;
+    const digits = phone.replace(/\D/g, '');
+    return allowedChars.test(phone) && digits.length >= 10;
+  };
+
+  const validateForm = () => {
+    const nameValue = form.querySelector('#name')?.value.trim() || '';
+    const emailValue = form.querySelector('#email')?.value.trim() || '';
+    const phoneValue = form.querySelector('#phone')?.value.trim() || '';
+    const messageValue = form.querySelector('#message')?.value.trim() || '';
+
+    if (honeypotField && honeypotField.value.trim().length > 0) {
+      showFeedback('Envio cancelado.', { isError: true });
+      return false;
+    }
+
+    if (nameValue.length < 3) {
+      showFeedback('Informe seu nome completo (mínimo de 3 caracteres).');
+      return false;
+    }
+
+    if (!isValidEmail(emailValue)) {
+      showFeedback('Digite um e-mail corporativo válido.');
+      return false;
+    }
+
+    if (!isValidPhone(phoneValue)) {
+      showFeedback('Use um telefone válido com DDD (apenas números, +, (), - e espaço).');
+      return false;
+    }
+
+    if (messageValue.length < 10) {
+      showFeedback('Conte-nos um pouco mais (mínimo de 10 caracteres).');
+      return false;
+    }
+
+    return true;
+  };
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    resetFeedback();
+
+    if (!validateForm()) {
+      return;
+    }
 
     if (submitButton) {
       submitButton.disabled = true;
+      submitButton.setAttribute('aria-busy', 'true');
     }
 
     const formData = new FormData(form);
@@ -50,16 +116,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (!response.ok) {
-        throw new Error('Falha ao enviar.');
+        throw new Error('Falha ao enviar');
       }
 
       showSuccessModal();
+      showFeedback('Mensagem enviada com sucesso. Verifique seu e-mail para o retorno da CoreDB.', {
+        isError: false,
+      });
       form.reset();
     } catch (error) {
-      form.submit();
+      showFeedback('Não foi possível enviar agora. Tente novamente em instantes.', { isError: true });
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
+        submitButton.removeAttribute('aria-busy');
       }
     }
   });

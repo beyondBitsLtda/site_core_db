@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self'; connect-src 'self' https://formsubmit.co; form-action https://formsubmit.co; frame-ancestors 'none';">
     <title>CoreDB - Consultoria em TOTVS e Bancos de Dados</title>
     <link rel="stylesheet" href="styles.css">
 
@@ -391,11 +392,15 @@
                         <input type="hidden" name="_subject" value="Novo contato pelo site da CoreDB">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_cc" value="henrique.araujo@coredb.com.br">
-                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="honeypot" aria-hidden="true">
+                            <label for="website">Não preencha este campo</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
 
                         <div class="form-group">
                             <label for="name">Nome completo</label>
-                            <input type="text" id="name" name="Nome" required>
+                            <input type="text" id="name" name="Nome" required minlength="3">
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail corporativo</label>
@@ -403,7 +408,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="Telefone" placeholder="(DDD) 99999-9999" required>
+                            <input type="tel" id="phone" name="Telefone" placeholder="(DDD) 99999-9999" inputmode="tel" pattern="[0-9+()\-\s]{10,}" required>
                         </div>
                         <div class="form-group">
                             <label for="company">Empresa</label>
@@ -423,8 +428,9 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Conte-nos um pouco mais</label>
-                            <textarea id="message" name="Mensagem" placeholder="Descreva o cenário atual, desafios e prazos desejados..." required></textarea>
+                            <textarea id="message" name="Mensagem" placeholder="Descreva o cenário atual, desafios e prazos desejados..." required minlength="10"></textarea>
                         </div>
+                        <div class="form-feedback" id="form-feedback" role="alert" aria-live="polite" hidden></div>
                         <button class="btn-primary" type="submit">Solicitar contato da CoreDB</button>
                     </form>
                 </div>
