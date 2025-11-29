@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const whatsappLinks = document.querySelectorAll('.whatsapp-link');
+  const phone = decodeBase64(contactConfig?.whatsapp?.phone || '');
 
   whatsappLinks.forEach((link) => {
-    const phone = link.dataset.phone;
+    const key = link.dataset.whatsappKey;
     const message = link.dataset.message || '';
 
-    if (!phone) return;
+    if (!phone || !key) return;
 
     const url = new URL(`https://wa.me/${phone}`);
     if (message) {

@@ -53,6 +53,29 @@ document.addEventListener('DOMContentLoaded', () => {
     feedback.classList.toggle('is-success', !isError);
   };
 
+  const primaryEmail = decodeBase64(contactConfig?.emails?.primary || '');
+  const ccEmail = decodeBase64(contactConfig?.emails?.cc || '');
+
+  if (!primaryEmail) {
+    showFeedback('Canal temporariamente indisponível. Tente novamente em instantes.', { isError: true });
+    return;
+  }
+
+  // Configura o destino apenas em memória para reduzir exposição de e-mail na página.
+  form.action = `https://formsubmit.co/${primaryEmail}`;
+  form.dataset.ajaxAction = `https://formsubmit.co/ajax/${primaryEmail}`;
+
+  if (ccEmail) {
+    let ccField = form.querySelector('input[name="_cc"]');
+    if (!ccField) {
+      ccField = document.createElement('input');
+      ccField.type = 'hidden';
+      ccField.name = '_cc';
+      form.appendChild(ccField);
+    }
+    ccField.value = ccEmail;
+  }
+
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isValidPhone = (phone) => {
     const allowedChars = /^[0-9+()\-\s]+$/;

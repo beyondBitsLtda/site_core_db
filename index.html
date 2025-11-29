@@ -38,10 +38,9 @@
             </ul>
             <a
               class="btn-outline whatsapp-link"
-              data-phone="5531990822734"
+              data-whatsapp-key="primary"
               data-message="Olá, vim do site da CoreDB e quero conversar com Brayan Rodrigues sobre consultoria."
-              href="https://wa.me/5531990822734"
-              target="_blank"
+              href="#"
               rel="noopener noreferrer"
             >
               Conversar com especialista
@@ -65,10 +64,9 @@
                 <div class="hero-actions">
                     <a
                       class="btn-primary whatsapp-link"
-                      data-phone="5531990822734"
+                      data-whatsapp-key="diagnostico"
                       data-message="Olá, vim do site da CoreDB e quero agendar um diagnóstico gratuito com Brayan Rodrigues."
-                      href="https://wa.me/5531990822734"
-                      target="_blank"
+                      href="#"
                       rel="noopener noreferrer"
                     >
                       Conversar com especialista
@@ -124,10 +122,9 @@
                     </ul>
                     <a
                       class="btn-primary whatsapp-link"
-                      data-phone="5531990822734"
+                      data-whatsapp-key="diagnostico"
                       data-message="Olá, vim do site da CoreDB e quero um diagnóstico gratuito do meu ambiente com Brayan Rodrigues."
-                      href="https://wa.me/5531990822734"
-                      target="_blank"
+                      href="#"
                       rel="noopener noreferrer"
                     >
                       Quero meu diagnóstico gratuito
@@ -276,10 +273,9 @@
             <div class="cta-bar">
                 <a
                   class="btn-primary whatsapp-link"
-                  data-phone="5531990822734"
+                  data-whatsapp-key="estrutura"
                   data-message="Olá, vim do site da CoreDB e quero estruturar meu ambiente TOTVS com apoio da CoreDB, falando com Brayan Rodrigues."
-                  href="https://wa.me/5531990822734"
-                  target="_blank"
+                  href="#"
                   rel="noopener noreferrer"
                 >
                   Quero estruturar meu ambiente TOTVS
@@ -390,16 +386,10 @@
                 </p>
                 <div class="contact-card">
                     <!-- FORMULÁRIO INTEGRADO AO E-MAIL -->
-                    <form
-                      id="contact-form"
-                      action="https://formsubmit.co/brayan.rodrigues@coredb.com.br"
-                      data-ajax-action="https://formsubmit.co/ajax/brayan.rodrigues@coredb.com.br"
-                      method="POST"
-                    >
-                        <!-- Configurações do FormSubmit -->
+                    <form id="contact-form" method="POST" novalidate>
+                        <!-- Configurações do FormSubmit preenchidas via JS para reduzir exposição de e-mails -->
                         <input type="hidden" name="_subject" value="Novo contato pelo site da CoreDB">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_cc" value="henrique.araujo@coredb.com.br">
 
                         <div class="honeypot" aria-hidden="true">
                             <label for="website">Não preencha este campo</label>
@@ -463,6 +453,7 @@
             © 2025 CoreDB • Consultoria em TOTVS Protheus, RM, Fluig e Bancos de Dados • 
         </div>
     </footer>
+    <script src="js/config.js"></script>
     <script src="js/whatsapp.js"></script>
     <script src="js/email.js"></script>
 </body>
