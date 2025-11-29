@@ -454,10 +454,7 @@
             color: rgba(226, 232, 240, 0.82);
         }
 
-        select {
-            color: #f9fafb;
-        }
-
+        select { color: #f9fafb; }
         option {
             background: #0b1224;
             color: #f9fafb;
@@ -491,15 +488,22 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* --- CUBO TRANSLÚCIDO --- */
+        /* --- CUBOS --- */
 
-       .hero-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 80px; /* antes era 40px */
-    perspective: 1200px;
-}
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 80px; /* distância entre cubo e card */
+            perspective: 1200px;
+        }
+
+        .cube-wrapper {
+            display: flex;
+            justify-content: center;
+            perspective: 1200px;
+            margin-top: 10px;
+        }
 
         .hero-cube {
             width: 260px;
@@ -563,11 +567,19 @@
         .inner-face.top    { transform: rotateX(90deg) translateZ(70px); }
         .inner-face.bottom { transform: rotateX(-90deg) translateZ(70px); }
 
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
+            gap: 40px;
+            align-items: center;
+        }
+
         @media (max-width: 980px) {
             .nav-links { display: none; }
             .hero-grid { grid-template-columns: 1fr; }
             .testimonial { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 600px) {
@@ -629,7 +641,6 @@
                 <li><a href="#process">Como Trabalhamos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
-            <!-- Botão topo -> WhatsApp (com seu nome) -->
             <a
               class="btn-outline"
               href="https://wa.me/5531990822734?text=Ol%C3%A1,%20vim%20do%20site%20da%20CoreDB%20e%20quero%20conversar%20com%20Brayan%20Rodrigues%20sobre%20consultoria."
@@ -655,7 +666,6 @@
                     que sua operação rode com velocidade, segurança e disponibilidade máximas.
                 </p>
                 <div class="hero-actions">
-                    <!-- CTA principal hero -> WhatsApp -->
                     <a
                       class="btn-primary"
                       href="https://wa.me/5531990822734?text=Ol%C3%A1,%20vim%20do%20site%20da%20CoreDB%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20Brayan%20Rodrigues."
@@ -687,7 +697,6 @@
                 </div>
             </div>
 
-            <!-- CUBO + CARD -->
             <div class="hero-visual">
                 <div class="hero-cube">
                     <div class="cube-face front"></div>
@@ -718,7 +727,6 @@
                         <li>Mapeamento de travamentos, lentidões e rotinas manuais críticas</li>
                         <li>Plano de ação com prioridades, estimativa de horas e ganhos esperados</li>
                     </ul>
-                    <!-- CTA card -> WhatsApp -->
                     <a
                       class="btn-primary"
                       href="https://wa.me/5531990822734?text=Ol%C3%A1,%20vim%20do%20site%20da%20CoreDB%20e%20quero%20um%20diagn%C3%B3stico%20gratuito%20do%20meu%20ambiente%20com%20Brayan%20Rodrigues."
@@ -734,17 +742,40 @@
 
     <section id="about">
         <div class="container">
-            <h2 class="section-title">Sobre a CoreDB</h2>
-            <p class="section-subtitle">
-                Somos uma consultoria especializada em Administração de Bancos de Dados e otimização de sistemas TOTVS.
-                Unimos experiência prática em RM, Protheus e Fluig a um atendimento próximo e cuidadoso, sempre focado
-                em transformar desafios tecnológicos em resultados reais para o seu negócio.
-            </p>
-            <div class="logos">
-                <div class="logo-badge">Administração de Bancos de Dados (DBA)</div>
-                <div class="logo-badge">TOTVS Protheus</div>
-                <div class="logo-badge">TOTVS RM</div>
-                <div class="logo-badge">Fluig &amp; automação de processos</div>
+            <div class="about-grid">
+                <div>
+                    <h2 class="section-title">Sobre a CoreDB</h2>
+                    <p class="section-subtitle">
+                        Somos uma consultoria especializada em Administração de Bancos de Dados e otimização de sistemas TOTVS.
+                        Unimos experiência prática em RM, Protheus e Fluig a um atendimento próximo e cuidadoso, sempre focado
+                        em transformar desafios tecnológicos em resultados reais para o seu negócio.
+                    </p>
+                    <div class="logos">
+                        <div class="logo-badge">Administração de Bancos de Dados (DBA)</div>
+                        <div class="logo-badge">TOTVS Protheus</div>
+                        <div class="logo-badge">TOTVS RM</div>
+                        <div class="logo-badge">Fluig &amp; automação de processos</div>
+                    </div>
+                </div>
+                <div class="cube-wrapper">
+                    <div class="hero-cube">
+                        <div class="cube-face front"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face bottom"></div>
+
+                        <div class="inner-cube">
+                            <div class="inner-face front"></div>
+                            <div class="inner-face back"></div>
+                            <div class="inner-face right"></div>
+                            <div class="inner-face left"></div>
+                            <div class="inner-face top"></div>
+                            <div class="inner-face bottom"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -849,7 +880,6 @@
                 </div>
             </div>
             <div class="cta-bar">
-                <!-- CTA processo -> WhatsApp -->
                 <a
                   class="btn-primary"
                   href="https://wa.me/5531990822734?text=Ol%C3%A1,%20vim%20do%20site%20da%20CoreDB%20e%20quero%20estruturar%20meu%20ambiente%20TOTVS%20com%20apoio%20da%20CoreDB,%20falando%20com%20Brayan%20Rodrigues."
@@ -904,22 +934,29 @@
                     gratuito para entender sua realidade e indicar o melhor caminho em TOTVS e Banco de Dados.
                 </p>
                 <div class="contact-card">
-                    <form>
+                    <!-- FORMULÁRIO INTEGRADO AO E-MAIL -->
+                    <form action="https://formsubmit.co/brayan.rodrigues@coredb.com.br" method="POST">
+                        <!-- Configurações do FormSubmit -->
+                        <input type="hidden" name="_subject" value="Novo contato pelo site da CoreDB">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_cc" value="henrique.araujo@coredb.com.br">
+                        <input type="hidden" name="_captcha" value="false">
+
                         <div class="form-group">
                             <label for="name">Nome completo</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="Nome" required>
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail corporativo</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="Email" required>
                         </div>
                         <div class="form-group">
                             <label for="company">Empresa</label>
-                            <input type="text" id="company" name="company">
+                            <input type="text" id="company" name="Empresa">
                         </div>
                         <div class="form-group">
                             <label for="need">Principal necessidade</label>
-                            <select id="need" name="need">
+                            <select id="need" name="Necessidade">
                                 <option>Problemas de performance ou lentidão</option>
                                 <option>Projetos em TOTVS Protheus</option>
                                 <option>Projetos em TOTVS RM</option>
@@ -931,13 +968,33 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Conte-nos um pouco mais</label>
-                            <textarea id="message" name="message" placeholder="Descreva o cenário atual, desafios e prazos desejados..."></textarea>
+                            <textarea id="message" name="Mensagem" placeholder="Descreva o cenário atual, desafios e prazos desejados..."></textarea>
                         </div>
                         <button class="btn-primary" type="submit">Solicitar contato da CoreDB</button>
                     </form>
                 </div>
             </div>
             <div class="contact-card">
+                <div class="cube-wrapper">
+                    <div class="hero-cube">
+                        <div class="cube-face front"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face bottom"></div>
+
+                        <div class="inner-cube">
+                            <div class="inner-face front"></div>
+                            <div class="inner-face back"></div>
+                            <div class="inner-face right"></div>
+                            <div class="inner-face left"></div>
+                            <div class="inner-face top"></div>
+                            <div class="inner-face bottom"></div>
+                        </div>
+                    </div>
+                </div>
+
                 <h3>Contato direto com nossos especialistas</h3>
                 <div class="contact-list">
                     <div class="contact-item">
