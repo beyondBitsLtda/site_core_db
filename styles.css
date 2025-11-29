@@ -289,11 +289,27 @@
             color: #fff;
         }
 
+        .section-title.align-left {
+            text-align: left;
+        }
+
+        .section-title.compact-bottom {
+            margin-bottom: 8px;
+        }
+
         .section-subtitle {
             text-align: center;
             color: var(--muted);
             max-width: 720px;
             margin: 0 auto 44px;
+        }
+
+        .section-subtitle.align-left {
+            text-align: left;
+        }
+
+        .section-subtitle.compact-subtitle {
+            margin: 0;
         }
 
         .service-grid {
@@ -455,6 +471,14 @@
             align-items: center;
             gap: 28px;
             text-align: center;
+        }
+
+        .contact-title {
+            color: #fff;
+        }
+
+        .contact-subtitle {
+            color: #e5edff;
         }
 
         .contact-card {

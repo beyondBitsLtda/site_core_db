@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self'; connect-src 'self' https://formsubmit.co; form-action https://formsubmit.co; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' https: data:; font-src 'self' data:; script-src 'self'; connect-src 'self' https://formsubmit.co; form-action https://formsubmit.co;">
     <title>CoreDB - Consultoria em TOTVS e Bancos de Dados</title>
     <link rel="stylesheet" href="styles.css">
 
@@ -291,10 +291,10 @@
             <div class="testimonial">
                 <div>
                     <div class="pill">Por que escolher a CoreDB?</div>
-                    <h3 class="section-title" style="text-align:left; margin-bottom:8px;">
+                    <h3 class="section-title align-left compact-bottom">
                         Atendimento direto, visão completa e flexibilidade
                     </h3>
-                    <p class="section-subtitle" style="text-align:left; margin:0;">
+                    <p class="section-subtitle align-left compact-subtitle">
                         Cuidamos do ERP e do banco de dados ao mesmo tempo, evitando “jogo de empurra” entre times
                         diferentes e garantindo uma visão de ponta a ponta da sua operação.
                     </p>
@@ -380,8 +380,8 @@
                     </div>
                 </div>
 
-                <h2 class="section-title" style="color:#fff;">Vamos conversar sobre o seu ambiente?</h2>
-                <p class="section-subtitle" style="color:#e5edff;">
+                <h2 class="section-title contact-title">Vamos conversar sobre o seu ambiente?</h2>
+                <p class="section-subtitle contact-subtitle">
                     Preencha o formulário e retornaremos com um diagnóstico gratuito para entender sua realidade e
                     indicar o melhor caminho em TOTVS e Banco de Dados.
                 </p>
@@ -408,7 +408,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="Telefone" placeholder="(DDD) 99999-9999" inputmode="tel" pattern="[0-9+()\-\s]{10,}" required>
+                            <input type="tel" id="phone" name="Telefone" placeholder="(DDD) 99999-9999" inputmode="tel" pattern="^[0-9+()\s-]{10,}$" required>
                         </div>
                         <div class="form-group">
                             <label for="company">Empresa</label>
