@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModalButton = document.getElementById('success-modal-close');
   const feedback = document.getElementById('form-feedback');
   const honeypotField = document.getElementById('website');
+  const ajaxAction = form.dataset.ajaxAction || '';
 
   // TODO: mover o envio para um backend próprio para proteger os e-mails corporativos.
 
@@ -107,16 +108,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const formData = new FormData(form);
+    const endpoint = ajaxAction || form.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
 
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch(endpoint, {
         method: form.method || 'POST',
         body: formData,
         headers: { Accept: 'application/json' },
+        mode: 'cors',
       });
 
       if (!response.ok) {
         throw new Error('Falha ao enviar');
+      }
+
+      const result = await response.json().catch(() => null);
+      const successFlag = result?.success === 'true' || result?.success === true;
+
+      if (!successFlag) {
+        throw new Error('Retorno inesperado');
       }
 
       showSuccessModal();
