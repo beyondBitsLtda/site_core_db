@@ -359,21 +359,25 @@
         }
 
         .logos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
             margin-top: 20px;
-            align-items: center;
+            justify-content: center;
         }
 
         .logo-badge {
-            padding: 18px 12px;
+            flex: 1 1 220px;
+            max-width: 260px;
+            padding: 16px 18px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 14px;
-            color: var(--muted);
-            font-weight: 600;
+            color: #e9edf5;
+            font-weight: 700;
+            letter-spacing: 0.1px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
         }
 
         .testimonial {
@@ -575,6 +579,11 @@
             align-items: center;
         }
 
+        .about-grid > div {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
         @media (max-width: 980px) {
             .nav-links { display: none; }
             .hero-grid { grid-template-columns: 1fr; }
@@ -585,6 +594,15 @@
         }
 
         @media (max-width: 600px) {
+            .logos {
+                gap: 12px;
+            }
+
+            .logo-badge {
+                flex-basis: 100%;
+                max-width: none;
+            }
+
             .hero-cube {
                 width: 220px;
                 height: 220px;
@@ -685,7 +703,7 @@
                 <div class="trust-badges">
                     <span>5+ anos entregando projetos em produção</span>
                     <span>Especialistas em RM, Protheus, Fluig e DBA</span>
-                    <span>Capacidade até 1.000 horas/mês em contratos</span>
+                    <span>Capacidade superior a 2.000 (duas mil) horas.</span>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -693,12 +711,8 @@
                         <div class="stat-label">anos transformando tecnologia em resultado</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">R$ 150</div>
-                        <div class="stat-label">valor/hora em projetos de consultoria fechados (RM, Fluig e DB)</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">1.000 h</div>
-                        <div class="stat-label">capacidade máxima de atendimento mensal em grandes contratos</div>
+                        <div class="stat-value">2.000 h+</div>
+                        <div class="stat-label">Capacidade superior a 2.000 (duas mil) horas em grandes contratos</div>
                     </div>
                 </div>
             </div>
@@ -938,8 +952,8 @@
 
                 <h2 class="section-title" style="color:#fff;">Vamos conversar sobre o seu ambiente?</h2>
                 <p class="section-subtitle" style="color:#e5edff;">
-                    Preencha o formulário ou fale diretamente com um dos nossos especialistas. Agendamos um diagnóstico
-                    gratuito para entender sua realidade e indicar o melhor caminho em TOTVS e Banco de Dados.
+                    Preencha o formulário e retornaremos com um diagnóstico gratuito para entender sua realidade e
+                    indicar o melhor caminho em TOTVS e Banco de Dados.
                 </p>
                 <div class="contact-card">
                     <!-- FORMULÁRIO INTEGRADO AO E-MAIL -->
@@ -980,50 +994,6 @@
                         </div>
                         <button class="btn-primary" type="submit">Solicitar contato da CoreDB</button>
                     </form>
-                </div>
-            </div>
-            <div class="contact-card">
-                <h3>Contato direto com nossos especialistas</h3>
-                <div class="contact-list">
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        <div>
-                            <strong>Henrique Vasconcelos Araújo</strong>
-                            <div>Telefone: (38) 99862-2428</div>
-                            <div>E-mail: henrique.araujo@coredb.com.br</div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        <div>
-                            <strong>Brayan Rodrigues</strong>
-                            <div>Telefone: (31) 99082-2734</div>
-                            <div>E-mail: brayan.rodrigues@coredb.com.br</div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        <div>
-                            <strong>Modelo comercial flexível</strong>
-                            <div>Projetos fechados, suporte sob demanda e alocação de analistas, conforme a sua necessidade.</div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        <div>
-                            <strong>Parcerias para captação de projetos</strong>
-                            <div>Modelo comissionado por sucesso para especialistas em prospecção digital.</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
