@@ -36,6 +36,11 @@
             padding: 0 24px;
         }
 
+        .container-wide {
+            max-width: 1320px;
+            padding: 0 32px;
+        }
+
         header {
             position: sticky;
             top: 0;
@@ -382,12 +387,12 @@
 
         .testimonial {
             display: grid;
-            grid-template-columns: 0.6fr 1.4fr;
-            gap: 24px;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: 32px;
             background: linear-gradient(120deg, rgba(14, 165, 233, 0.12), rgba(29, 78, 216, 0.18));
-            border-radius: 18px;
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 24px;
+            padding: 32px 36px;
             align-items: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
         }
@@ -637,6 +642,11 @@
 
             .contact-cube-wrapper {
                 transform: scale(0.6);
+            }
+
+            .testimonial {
+                padding: 24px;
+                gap: 20px;
             }
         }
     </style>
@@ -911,7 +921,7 @@
     </section>
 
     <section id="testimonial">
-        <div class="container">
+        <div class="container container-wide">
             <div class="testimonial">
                 <div>
                     <div class="pill">Por que escolher a CoreDB?</div>
