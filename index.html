@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreDB - Especialistas em CRM e Relacionamento com o Cliente</title>
+    <title>CoreDB - Consultoria em TOTVS e Bancos de Dados</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
+            --primary: #1d4ed8;
+            --primary-dark: #1b3fa8;
             --secondary: #0ea5e9;
-            --bg: #050b16;
+            --bg: #0b1224;
             --card: #0f172a;
-            --card-strong: #111b30;
-            --text: #e9eef8;
-            --muted: #b8c3d4;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
             --accent: #22c55e;
-            --warning: #f59e0b;
         }
 
         * {
@@ -26,19 +24,16 @@
 
         body {
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.12), transparent 22%),
-                        radial-gradient(circle at 80% 0%, rgba(37, 99, 235, 0.16), transparent 25%),
-                        var(--bg);
+            background: var(--bg);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            text-rendering: optimizeLegibility;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         header {
@@ -54,17 +49,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 0;
+            padding: 18px 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-weight: 800;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.15rem;
             letter-spacing: 0.5px;
-            color: #fff;
         }
 
         .logo-icon {
@@ -76,7 +70,7 @@
         }
 
         .nav-links {
-            display: none;
+            display: flex;
             align-items: center;
             gap: 24px;
             list-style: none;
@@ -85,7 +79,7 @@
         .nav-links a {
             color: var(--muted);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: color 0.2s ease, transform 0.2s ease;
         }
 
@@ -95,40 +89,23 @@
         }
 
         .btn-primary,
-        .btn-outline,
-        .btn-ghost {
+        .btn-outline {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 12px 18px;
             border-radius: 12px;
-            font-weight: 700;
+            font-weight: 600;
             text-decoration: none;
-            letter-spacing: 0.1px;
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
             border: none;
             cursor: pointer;
         }
 
-        .btn-primary:focus-visible,
-        .btn-outline:focus-visible,
-        .btn-ghost:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
-            box-shadow: 0 14px 40px rgba(16, 63, 233, 0.4);
+            box-shadow: 0 20px 60px rgba(16, 63, 233, 0.35);
         }
 
         .btn-primary:hover {
@@ -136,30 +113,14 @@
         }
 
         .btn-outline {
-            border: 1px solid rgba(255, 255, 255, 0.24);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
-            background: rgba(255, 255, 255, 0.04);
+            background: transparent;
         }
 
         .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
             transform: translateY(-2px);
-        }
-
-        .btn-ghost {
-            color: var(--text);
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            padding: 10px 14px;
-            font-weight: 600;
-        }
-
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
-            outline: 2px solid #9cd2ff;
-            outline-offset: 2px;
-            border-color: rgba(156, 210, 255, 0.6);
         }
 
         .pill {
@@ -170,16 +131,13 @@
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.08);
             color: #fff;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 0.95rem;
             margin-bottom: 18px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
         }
 
-        .pill strong { color: var(--accent); }
-
         .hero {
-            padding: 96px 0 72px;
+            padding: 120px 0 80px;
             position: relative;
             overflow: hidden;
         }
@@ -212,17 +170,16 @@
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 32px;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 48px;
             align-items: center;
         }
 
         .headline {
-            font-size: clamp(2.3rem, 4vw + 1rem, 3.2rem);
-            line-height: 1.15;
+            font-size: 3rem;
+            line-height: 1.2;
             margin-bottom: 18px;
             color: #fff;
-            letter-spacing: -0.5px;
         }
 
         .headline strong {
@@ -230,8 +187,8 @@
         }
 
         .subhead {
-            color: #d7deeb;
-            font-size: 1.02rem;
+            color: var(--muted);
+            font-size: 1.05rem;
             margin-bottom: 26px;
         }
 
@@ -262,42 +219,13 @@
             font-weight: 600;
         }
 
-        .assurance-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-            margin: 14px 0 4px;
-        }
-
-        .assurance-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            padding: 12px 14px;
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .assurance-card strong { color: #fff; display: block; }
-
-        .assurance-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            display: grid;
-            place-items: center;
-            background: rgba(34, 197, 94, 0.14);
-            color: var(--accent);
-            font-weight: 700;
-        }
-
         .hero-card {
-            background: linear-gradient(180deg, rgba(16, 63, 233, 0.14), rgba(14, 165, 233, 0.08));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 24px;
+            background: linear-gradient(180deg, rgba(16, 63, 233, 0.1), rgba(14, 165, 233, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 28px;
             border-radius: 18px;
-            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            width: 100%;
         }
 
         .hero-card h3 {
@@ -327,9 +255,9 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin-top: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            margin-top: 26px;
         }
 
         .stat-card {
@@ -352,22 +280,21 @@
         }
 
         section {
-            padding: 72px 0;
+            padding: 80px 0;
             position: relative;
         }
 
         .section-title {
             text-align: center;
-            font-size: clamp(1.7rem, 2vw + 1rem, 2.2rem);
+            font-size: 2.2rem;
             margin-bottom: 12px;
             color: #fff;
-            letter-spacing: -0.2px;
         }
 
         .section-subtitle {
             text-align: center;
-            color: #d2d9e5;
-            max-width: 760px;
+            color: var(--muted);
+            max-width: 720px;
             margin: 0 auto 44px;
         }
 
@@ -462,7 +389,7 @@
         }
 
         .quote {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #e9edf5;
         }
 
@@ -486,8 +413,8 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 22px;
+            grid-template-columns: 1fr 0.95fr;
+            gap: 28px;
             align-items: start;
         }
 
@@ -509,16 +436,31 @@
             font-weight: 600;
         }
 
+        /* CAMPOS DO FORMULÁRIO – contraste melhorado */
         input,
         textarea,
         select {
             width: 100%;
             padding: 12px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.08);
-            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(5, 16, 40, 0.55);
+            color: #f9fafb;
             font-size: 1rem;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(226, 232, 240, 0.82);
+        }
+
+        select {
+            color: #f9fafb;
+        }
+
+        option {
+            background: #0b1224;
+            color: #f9fafb;
         }
 
         textarea { min-height: 110px; resize: vertical; }
@@ -528,20 +470,6 @@
             gap: 12px;
             margin-top: 10px;
         }
-
-        .contact-highlight {
-            display: grid;
-            gap: 10px;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(37, 99, 235, 0.08));
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 14px;
-            border-radius: 12px;
-            color: #fff;
-        }
-
-        .contact-highlight small { color: var(--muted); }
-
-        .contact-highlight strong { color: var(--accent); }
 
         .contact-item {
             display: flex;
@@ -563,136 +491,117 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .mobile-cta-bar {
-            position: fixed;
-            bottom: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(640px, calc(100% - 24px));
-            display: none;
-            grid-template-columns: 1fr;
-            gap: 8px;
-            background: rgba(7, 14, 28, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            padding: 12px;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
-            z-index: 999;
-        }
+        /* --- CUBO TRANSLÚCIDO --- */
 
-        .mobile-cta-bar strong { color: #fff; }
-
-        .mobile-cta-bar p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-
-        /* 3D Cube */
         .hero-visual {
-            display: grid;
-            gap: 18px;
-            justify-items: center;
-        }
-
-        .cube-stage {
-            --cube-size: 320px;
-            position: relative;
-            width: min(var(--cube-size), 100%);
-            aspect-ratio: 1;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
             perspective: 1200px;
         }
 
-        .cube-scene {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
+        .hero-cube {
+            width: 260px;
+            height: 260px;
+            position: relative;
             transform-style: preserve-3d;
             animation: rotate3d 20s infinite linear;
         }
-
-        @media (prefers-reduced-motion: reduce) {
-            .cube-scene { animation: none; transform: rotateX(15deg) rotateY(18deg) rotateZ(6deg); }
-        }
-
-        .cube-layer {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-        }
-
-        .cube-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cube-outer .cube-face { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
-
-        .cube-inner {
-            position: absolute;
-            width: 60%;
-            height: 60%;
-            left: 50%;
-            top: 50%;
-            transform-style: preserve-3d;
-            transform: translate(-50%, -50%);
-            animation: rotateInner 15s infinite linear reverse;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .cube-inner { animation: none; }
-        }
-
-        .cube-inner .cube-face {
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
-        }
-
-        .cube-face.face-front { transform: translateZ(50%); }
-        .cube-face.face-back { transform: rotateY(180deg) translateZ(50%); }
-        .cube-face.face-right { transform: rotateY(90deg) translateZ(50%); }
-        .cube-face.face-left { transform: rotateY(-90deg) translateZ(50%); }
-        .cube-face.face-top { transform: rotateX(90deg) translateZ(50%); }
-        .cube-face.face-bottom { transform: rotateX(-90deg) translateZ(50%); }
-
-        .cube-inner .face-front { transform: translateZ(50%); }
-        .cube-inner .face-back { transform: rotateY(180deg) translateZ(50%); }
-        .cube-inner .face-right { transform: rotateY(90deg) translateZ(50%); }
-        .cube-inner .face-left { transform: rotateY(-90deg) translateZ(50%); }
-        .cube-inner .face-top { transform: rotateX(90deg) translateZ(50%); }
-        .cube-inner .face-bottom { transform: rotateX(-90deg) translateZ(50%); }
 
         @keyframes rotate3d {
             from { transform: rotateX(15deg) rotateY(0deg) rotateZ(0deg); }
             to { transform: rotateX(375deg) rotateY(360deg) rotateZ(360deg); }
         }
 
+        .cube-face {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.4);
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.35);
+            backdrop-filter: blur(10px);
+        }
+
+        .cube-face.front  { transform: translateZ(130px); }
+        .cube-face.back   { transform: translateZ(-130px) rotateY(180deg); }
+        .cube-face.right  { transform: rotateY(90deg) translateZ(130px); }
+        .cube-face.left   { transform: rotateY(-90deg) translateZ(130px); }
+        .cube-face.top    { transform: rotateX(90deg) translateZ(130px); }
+        .cube-face.bottom { transform: rotateX(-90deg) translateZ(130px); }
+
+        .inner-cube {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            left: 50%;
+            top: 50%;
+            margin-left: -70px;
+            margin-top: -70px;
+            transform-style: preserve-3d;
+            animation: rotateInner 15s infinite linear reverse;
+        }
+
         @keyframes rotateInner {
-            from { transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-            to { transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+            from { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+            to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
         }
 
-        @media (max-width: 720px) {
-            .mobile-cta-bar { display: grid; }
-            .hero { padding-bottom: 120px; }
+        .inner-face {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 1px solid rgba(148, 163, 184, 0.9);
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.45), rgba(15, 23, 42, 0.8));
         }
 
-        @media (min-width: 720px) {
-            .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 48px; }
-            .contact-grid { grid-template-columns: 1fr 0.95fr; gap: 28px; }
+        .inner-face.front  { transform: translateZ(70px); }
+        .inner-face.back   { transform: translateZ(-70px) rotateY(180deg); }
+        .inner-face.right  { transform: rotateY(90deg) translateZ(70px); }
+        .inner-face.left   { transform: rotateY(-90deg) translateZ(70px); }
+        .inner-face.top    { transform: rotateX(90deg) translateZ(70px); }
+        .inner-face.bottom { transform: rotateX(-90deg) translateZ(70px); }
+
+        @media (max-width: 980px) {
+            .nav-links { display: none; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .testimonial { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
 
-        @media (min-width: 980px) {
-            .nav-links { display: flex; }
-            .testimonial { grid-template-columns: 0.6fr 1.4fr; }
+        @media (max-width: 600px) {
+            .hero-cube {
+                width: 220px;
+                height: 220px;
+            }
+            .cube-face {
+                width: 220px;
+                height: 220px;
+            }
+            .cube-face.front  { transform: translateZ(110px); }
+            .cube-face.back   { transform: translateZ(-110px) rotateY(180deg); }
+            .cube-face.right  { transform: rotateY(90deg) translateZ(110px); }
+            .cube-face.left   { transform: rotateY(-90deg) translateZ(110px); }
+            .cube-face.top    { transform: rotateX(90deg) translateZ(110px); }
+            .cube-face.bottom { transform: rotateX(-90deg) translateZ(110px); }
+
+            .inner-cube {
+                width: 120px;
+                height: 120px;
+                margin-left: -60px;
+                margin-top: -60px;
+            }
+            .inner-face {
+                width: 120px;
+                height: 120px;
+            }
+            .inner-face.front  { transform: translateZ(60px); }
+            .inner-face.back   { transform: translateZ(-60px) rotateY(180deg); }
+            .inner-face.right  { transform: rotateY(90deg) translateZ(60px); }
+            .inner-face.left   { transform: rotateY(-90deg) translateZ(60px); }
+            .inner-face.top    { transform: rotateX(90deg) translateZ(60px); }
+            .inner-face.bottom { transform: rotateX(-90deg) translateZ(60px); }
         }
     </style>
 </head>
@@ -720,102 +629,104 @@
                 <li><a href="#process">Como Trabalhamos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
-            <a class="btn-outline" href="#contact">Fale com Especialista</a>
+            <!-- Botão topo -> WhatsApp (com seu nome) -->
+            <a
+              class="btn-outline"
+              href="https://wa.me/5531990822734?text=Ol%C3%A1,%20vim%20do%20site%20da%20CoreDB%20e%20quero%20conversar%20com%20Brayan%20Rodrigues%20sobre%20consultoria."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conversar com especialista
+            </a>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="container hero-grid">
             <div>
-                <div class="pill">Consultoria | CRM | <strong>Segurança</strong></div>
-                <h1 class="headline">Transforme dados em <strong>relacionamentos que fecham negócio</strong>.</h1>
-                <p class="subhead">Squad especialista em CRM que une tecnologia, processos e pessoas para aumentar vendas com previsibilidade, governança e confiança.</p>
+                <div class="pill">Consultoria • TOTVS Protheus &amp; RM • Bancos de Dados</div>
+                <h1 class="headline">
+                    Performance, segurança e estabilidade para os seus
+                    <strong>sistemas TOTVS e bancos de dados</strong>.
+                </h1>
+                <p class="subhead">
+                    A CoreDB é especialista em consultoria e serviços de alta performance para Administração de Bancos
+                    de Dados (DBA) e otimização de sistemas TOTVS RM, Protheus e Fluig. Cuidamos da base e do ERP para
+                    que sua operação rode com velocidade, segurança e disponibilidade máximas.
+                </p>
                 <div class="hero-actions">
-                    <a class="btn-primary" href="#contact">Receber proposta personalizada</a>
-                    <a class="btn-outline" href="#services">Explorar serviços</a>
+                    <!-- CTA principal hero -> WhatsApp -->
+                    <a
+                      class="btn-primary"
+                      href="https://wa.me/5531990822734?text=Ol%C3%A1,%20vim%20do%20site%20da%20CoreDB%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20Brayan%20Rodrigues."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Conversar com especialista
+                    </a>
+                    <a class="btn-outline" href="#services">Ver serviços de consultoria</a>
                 </div>
                 <div class="trust-badges">
-                    <span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Implantação assistida
-                    </span>
-                    <span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                        Integração segura
-                    </span>
-                    <span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                        Dashboards auditáveis
-                    </span>
+                    <span>5+ anos entregando projetos em produção</span>
+                    <span>Especialistas em RM, Protheus, Fluig e DBA</span>
+                    <span>Capacidade até 1.000 horas/mês em contratos</span>
                 </div>
-                <div class="assurance-grid">
-                    <div class="assurance-card">
-                        <div class="assurance-icon">LG</div>
-                        <div>
-                            <strong>LGPD & ISO 27001 ready</strong>
-                            <small>Rituais de segurança, backups e acessos revisados.</small>
-                        </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">5+</div>
+                        <div class="stat-label">anos transformando tecnologia em resultado</div>
                     </div>
-                    <div class="assurance-card">
-                        <div class="assurance-icon">24h</div>
-                        <div>
-                            <strong>Suporte responsivo</strong>
-                            <small>Canal direto com especialistas para incidentes e dúvidas.</small>
-                        </div>
+                    <div class="stat-card">
+                        <div class="stat-value">R$ 150</div>
+                        <div class="stat-label">valor/hora em projetos de consultoria fechados (RM, Fluig e DB)</div>
                     </div>
-                    <div class="assurance-card">
-                        <div class="assurance-icon">ROI</div>
-                        <div>
-                            <strong>Plano de 90 dias</strong>
-                            <small>Metas semanais com entregas visíveis e responsáveis.</small>
-                        </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1.000 h</div>
+                        <div class="stat-label">capacidade máxima de atendimento mensal em grandes contratos</div>
                     </div>
                 </div>
             </div>
+
+            <!-- CUBO + CARD -->
             <div class="hero-visual">
-                <div class="cube-stage" aria-hidden="true">
-                    <div class="cube-scene">
-                        <div class="cube-layer cube-outer">
-                            <div class="cube-face face-front"></div>
-                            <div class="cube-face face-back"></div>
-                            <div class="cube-face face-right"></div>
-                            <div class="cube-face face-left"></div>
-                            <div class="cube-face face-top"></div>
-                            <div class="cube-face face-bottom"></div>
-                        </div>
-                        <div class="cube-layer cube-inner">
-                            <div class="cube-face face-front"></div>
-                            <div class="cube-face face-back"></div>
-                            <div class="cube-face face-right"></div>
-                            <div class="cube-face face-left"></div>
-                            <div class="cube-face face-top"></div>
-                            <div class="cube-face face-bottom"></div>
-                        </div>
+                <div class="hero-cube">
+                    <div class="cube-face front"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+
+                    <div class="inner-cube">
+                        <div class="inner-face front"></div>
+                        <div class="inner-face back"></div>
+                        <div class="inner-face right"></div>
+                        <div class="inner-face left"></div>
+                        <div class="inner-face top"></div>
+                        <div class="inner-face bottom"></div>
                     </div>
                 </div>
+
                 <div class="hero-card">
-                    <h3>Segurança + resultado para seu CRM</h3>
-                    <p style="color: var(--muted);">Governança de dados, automações e playbooks comerciais que respeitam compliance.</p>
+                    <h3>Comece com um diagnóstico honesto</h3>
+                    <p>
+                        Avaliamos a saúde do seu Protheus, RM, Fluig e Banco de Dados para identificar gargalos de
+                        performance, riscos e oportunidades de melhoria antes de propor qualquer solução.
+                    </p>
                     <ul>
-                        <li>Onboarding completo em até 21 dias com rituais semanais.</li>
-                        <li>Integrações com ERP, marketing e BI sem dores de cabeça.</li>
-                        <li>Estratégia de cadência multicanal e automações prontas.</li>
-                        <li>Suporte dedicado e revisões trimestrais.</li>
+                        <li>Levantamento da situação atual dos sistemas e infraestrutura</li>
+                        <li>Mapeamento de travamentos, lentidões e rotinas manuais críticas</li>
+                        <li>Plano de ação com prioridades, estimativa de horas e ganhos esperados</li>
                     </ul>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-value">+42%</div>
-                            <div class="stat-label">crescimento médio em MRR</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">18 dias</div>
-                            <div class="stat-label">para implantar com squad</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">98%</div>
-                            <div class="stat-label">de aprovação dos times</div>
-                        </div>
-                    </div>
+                    <!-- CTA card -> WhatsApp -->
+                    <a
+                      class="btn-primary"
+                      href="https://wa.me/5531990822734?text=Ol%C3%A1,%20vim%20do%20site%20da%20CoreDB%20e%20quero%20um%20diagn%C3%B3stico%20gratuito%20do%20meu%20ambiente%20com%20Brayan%20Rodrigues."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Quero meu diagnóstico gratuito
+                    </a>
                 </div>
             </div>
         </div>
@@ -823,51 +734,77 @@
 
     <section id="about">
         <div class="container">
-            <h2 class="section-title">Quem Somos</h2>
-            <p class="section-subtitle">A CoreDB é especialista em criar experiências de relacionamento sustentadas por dados. Unimos tecnologia, processos e equipes para entregar crescimento previsível.</p>
+            <h2 class="section-title">Sobre a CoreDB</h2>
+            <p class="section-subtitle">
+                Somos uma consultoria especializada em Administração de Bancos de Dados e otimização de sistemas TOTVS.
+                Unimos experiência prática em RM, Protheus e Fluig a um atendimento próximo e cuidadoso, sempre focado
+                em transformar desafios tecnológicos em resultados reais para o seu negócio.
+            </p>
             <div class="logos">
-                <div class="logo-badge">CRM Salesforce</div>
-                <div class="logo-badge">HubSpot Partner</div>
-                <div class="logo-badge">Compliance LGPD</div>
-                <div class="logo-badge">ISO 27001 Ready</div>
+                <div class="logo-badge">Administração de Bancos de Dados (DBA)</div>
+                <div class="logo-badge">TOTVS Protheus</div>
+                <div class="logo-badge">TOTVS RM</div>
+                <div class="logo-badge">Fluig &amp; automação de processos</div>
             </div>
         </div>
     </section>
 
     <section id="services">
         <div class="container">
-            <h2 class="section-title">Soluções que aceleram suas vendas</h2>
-            <p class="section-subtitle">Consultorias e implementações feitas por especialistas para gerar produtividade, previsibilidade e confiança em cada interação com seu cliente.</p>
+            <h2 class="section-title">O que fazemos pela sua operação</h2>
+            <p class="section-subtitle">
+                Organizamos sua operação de ponta a ponta, garantindo que o ERP e o banco de dados conversem em
+                perfeita sintonia com os processos do seu negócio — reduzindo complexidade, eliminando gargalos e
+                liberando o time para focar no que realmente importa.
+            </p>
             <div class="service-grid">
                 <div class="card">
-                    <div class="icon-circle">🔧</div>
-                    <h3>Implementação de CRM</h3>
-                    <p>Configuração completa, integrações, governança de dados e automações adaptadas ao seu processo comercial.</p>
+                    <div class="icon-circle">🧩</div>
+                    <h3>Consultoria TOTVS Protheus</h3>
+                    <p>
+                        Ajustamos o Protheus aos seus fluxos de trabalho, revisamos processos, parâmetros e rotinas,
+                        garantindo uma operação estável, segura e alinhada às necessidades do negócio.
+                    </p>
                 </div>
                 <div class="card">
-                    <div class="icon-circle">📊</div>
-                    <h3>Analytics &amp; BI</h3>
-                    <p>Dashboards de performance, previsões de receita e alertas para decisões baseadas em dados em tempo real.</p>
+                    <div class="icon-circle">📚</div>
+                    <h3>Consultoria TOTVS RM</h3>
+                    <p>
+                        Integramos e otimizamos módulos de RH, financeiro, educacional e demais áreas, fazendo o RM
+                        trabalhar de forma harmônica e produtiva em toda a empresa.
+                    </p>
                 </div>
                 <div class="card">
-                    <div class="icon-circle">🤖</div>
-                    <h3>Automação de Marketing</h3>
-                    <p>Jornadas inteligentes que nutrem leads, reduzem CAC e aumentam LTV com personalização em escala.</p>
+                    <div class="icon-circle">☁️</div>
+                    <h3>Consultoria Fluig</h3>
+                    <p>
+                        Centralizamos processos, documentos e equipes em uma plataforma única. Com o Fluig, seus
+                        fluxos de trabalho ficam mais inteligentes, automatizados e colaborativos.
+                    </p>
                 </div>
                 <div class="card">
-                    <div class="icon-circle">🔗</div>
-                    <h3>Integração de Sistemas</h3>
-                    <p>ERP, chatbot, telefone, pagamentos: conectamos tudo em um ecossistema seguro e sem silos.</p>
+                    <div class="icon-circle">🗄️</div>
+                    <h3>Otimização de Banco de Dados</h3>
+                    <p>
+                        Cuidamos da base que sustenta seus sistemas: performance, segurança, rotinas de backup, tuning
+                        e monitoramento para um ambiente rápido e confiável.
+                    </p>
                 </div>
                 <div class="card">
-                    <div class="icon-circle">🧭</div>
-                    <h3>Consultoria Estratégica</h3>
-                    <p>Revisamos funil, SLA e playbooks para que seu time venda mais rápido e com previsibilidade.</p>
+                    <div class="icon-circle">🛠️</div>
+                    <h3>Suporte sob demanda &amp; contratos de volume</h3>
+                    <p>
+                        Atendimentos por hora, pacotes de tickets ou SLAs personalizados, conforme a criticidade e o
+                        volume de chamados da sua operação.
+                    </p>
                 </div>
                 <div class="card">
-                    <div class="icon-circle">🔒</div>
-                    <h3>Segurança &amp; Compliance</h3>
-                    <p>Políticas de acesso, criptografia, backup e conformidade LGPD para proteger seus dados e reputação.</p>
+                    <div class="icon-circle">👨‍💻</div>
+                    <h3>Alocação de analista remoto</h3>
+                    <p>
+                        Para operações que exigem dedicação exclusiva, alocamos um analista full-time remoto, atuando
+                        como parte do seu time com foco em TOTVS e Banco de Dados.
+                    </p>
                 </div>
             </div>
         </div>
@@ -875,29 +812,53 @@
 
     <section id="process">
         <div class="container">
-            <h2 class="section-title">Como entregamos confiança e resultado</h2>
-            <p class="section-subtitle">Um método validado em centenas de projetos para reduzir risco, acelerar a implementação e garantir adoção do time.</p>
+            <h2 class="section-title">Como entregamos estabilidade e resultado</h2>
+            <p class="section-subtitle">
+                Nossa atuação começa com um diagnóstico transparente e evolui para um plano estruturado de ação.
+                Trabalhamos sempre conectando ERP, banco de dados e pessoas, para que a tecnologia realmente apoie o
+                crescimento da sua empresa.
+            </p>
             <div class="steps">
                 <div class="step">
-                    <strong>1. Diagnóstico</strong>
-                    <p>Levantamento de stack, funil, metas e gargalos para um plano sob medida.</p>
+                    <strong>1. Diagnóstico da situação atual</strong>
+                    <p>
+                        Entendemos o cenário real da sua operação: sistemas, rotinas críticas, infraestrutura,
+                        chamados recorrentes e impactos no negócio.
+                    </p>
                 </div>
                 <div class="step">
-                    <strong>2. Arquitetura</strong>
-                    <p>Desenho de integrações, governança, cadências e automações prioritárias.</p>
+                    <strong>2. Desenho da solução</strong>
+                    <p>
+                        Definimos o melhor modelo para o momento da empresa — projeto fechado, suporte sob demanda ou
+                        alocação — com escopo e estimativas claros.
+                    </p>
                 </div>
                 <div class="step">
-                    <strong>3. Go-live guiado</strong>
-                    <p>Implantação assistida, treinamentos e acompanhamento diário nas primeiras semanas.</p>
+                    <strong>3. Execução com foco em estabilidade</strong>
+                    <p>
+                        Atuamos em ERP e banco de dados, reduzindo lentidões, eliminando retrabalho e trazendo
+                        visibilidade para as áreas envolvidas.
+                    </p>
                 </div>
                 <div class="step">
-                    <strong>4. Otimização contínua</strong>
-                    <p>Sprints de melhoria, novos painéis e revisões de playbook para manter o crescimento.</p>
+                    <strong>4. Evolução contínua</strong>
+                    <p>
+                        Monitoramos, revisamos e ajustamos ao longo do tempo, garantindo que a solução acompanhe o
+                        crescimento e as mudanças do negócio.
+                    </p>
                 </div>
             </div>
             <div class="cta-bar">
-                <a class="btn-primary" href="#contact">Quero acelerar meu CRM</a>
-                <div class="pill">Tempo médio de implantação: 18 dias</div>
+                <!-- CTA processo -> WhatsApp -->
+                <a
+                  class="btn-primary"
+                  href="https://wa.me/5531990822734?text=Ol%C3%A1,%20vim%20do%20site%20da%20CoreDB%20e%20quero%20estruturar%20meu%20ambiente%20TOTVS%20com%20apoio%20da%20CoreDB,%20falando%20com%20Brayan%20Rodrigues."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Quero estruturar meu ambiente TOTVS
+                </a>
+                <div class="pill">Diagnóstico inicial sem custo</div>
             </div>
         </div>
     </section>
@@ -906,12 +867,29 @@
         <div class="container">
             <div class="testimonial">
                 <div>
-                    <div class="pill">Histórias reais</div>
-                    <h3 class="section-title" style="text-align:left; margin-bottom:8px;">Clientes que confiam</h3>
-                    <p class="section-subtitle" style="text-align:left; margin:0;">Resultados consistentes com governança de dados e apoio estratégico.</p>
+                    <div class="pill">Por que escolher a CoreDB?</div>
+                    <h3 class="section-title" style="text-align:left; margin-bottom:8px;">
+                        Atendimento direto, visão completa e flexibilidade
+                    </h3>
+                    <p class="section-subtitle" style="text-align:left; margin:0;">
+                        Cuidamos do ERP e do banco de dados ao mesmo tempo, evitando “jogo de empurra” entre times
+                        diferentes e garantindo uma visão de ponta a ponta da sua operação.
+                    </p>
                 </div>
                 <div>
-                    <p class="quote">“Em menos de um mês a CoreDB integrou nosso CRM, redesenhou o funil e entregou dashboards que usamos todos os dias. Crescemos 42% em MRR com total visibilidade e segurança.”<small>Patrícia Souza • Diretora Comercial</small></p>
+                    <p class="quote">
+                        <strong>Atendimento Direto</strong><br>
+                        Você fala com quem resolve, sem burocracia ou camadas desnecessárias.<br><br>
+
+                        <strong>Visão Completa</strong><br>
+                        Entendemos tanto do seu ERP quanto da base que sustenta tudo, garantindo performance e
+                        estabilidade reais — não apenas paliativos.<br><br>
+
+                        <strong>Flexibilidade</strong><br>
+                        Adaptamos forma de atuação, carga horária e modelo comercial à realidade e ao orçamento da sua
+                        empresa.
+                        <small>CoreDB • Consultoria especializada em TOTVS e Bancos de Dados</small>
+                    </p>
                 </div>
             </div>
         </div>
@@ -920,13 +898,12 @@
     <section class="contact" id="contact">
         <div class="container contact-grid">
             <div>
-                <h2 class="section-title" style="color:#fff;">Pronto para conversar?</h2>
-                <p class="section-subtitle" style="color:#e5edff;">Conte o que você precisa e enviamos um plano com prazo, investimento e entregáveis. Sem compromisso.</p>
+                <h2 class="section-title" style="color:#fff;">Vamos conversar sobre o seu ambiente?</h2>
+                <p class="section-subtitle" style="color:#e5edff;">
+                    Preencha o formulário ou fale diretamente com um dos nossos especialistas. Agendamos um diagnóstico
+                    gratuito para entender sua realidade e indicar o melhor caminho em TOTVS e Banco de Dados.
+                </p>
                 <div class="contact-card">
-                    <div class="contact-highlight">
-                        <div><strong>Kickoff em 48h</strong><small>Alinhamento de metas, acesso aos ambientes e próximos passos.</small></div>
-                        <div><strong>Primeiros ganhos em 3 semanas</strong><small>Automações críticas e dashboards de operação ao vivo.</small></div>
-                    </div>
                     <form>
                         <div class="form-group">
                             <label for="name">Nome completo</label>
@@ -943,50 +920,63 @@
                         <div class="form-group">
                             <label for="need">Principal necessidade</label>
                             <select id="need" name="need">
-                                <option>Implementar ou trocar de CRM</option>
-                                <option>Integrar ferramentas</option>
-                                <option>Analytics e previsões</option>
-                                <option>Rever processo comercial</option>
+                                <option>Problemas de performance ou lentidão</option>
+                                <option>Projetos em TOTVS Protheus</option>
+                                <option>Projetos em TOTVS RM</option>
+                                <option>Projetos em Fluig / automação de processos</option>
+                                <option>Otimização ou suporte de Banco de Dados</option>
+                                <option>Alocação de analista remoto</option>
                                 <option>Outro</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="message">Conte-nos um pouco mais</label>
-                            <textarea id="message" name="message" placeholder="Volume de vendas, principais desafios, prazos..."></textarea>
+                            <textarea id="message" name="message" placeholder="Descreva o cenário atual, desafios e prazos desejados..."></textarea>
                         </div>
-                        <button class="btn-primary" type="submit">Falar com um especialista</button>
+                        <button class="btn-primary" type="submit">Solicitar contato da CoreDB</button>
                     </form>
                 </div>
             </div>
             <div class="contact-card">
-                <h3>Preferimos relações transparentes</h3>
+                <h3>Contato direto com nossos especialistas</h3>
                 <div class="contact-list">
                     <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
                         <div>
-                            <strong>E-mail</strong>
-                            <div>contato@coredb.com.br</div>
+                            <strong>Henrique Vasconcelos Araújo</strong>
+                            <div>Telefone: (38) 99862-2428</div>
+                            <div>E-mail: henrique.araujo@coredb.com.br</div>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
                         <div>
-                            <strong>WhatsApp</strong>
-                            <div>(31) 99999-9999</div>
+                            <strong>Brayan Rodrigues</strong>
+                            <div>Telefone: (31) 99082-2734</div>
+                            <div>E-mail: brayan.rodrigues@coredb.com.br</div>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 7 7 13 7 13s7-6 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
                         <div>
-                            <strong>Escritórios</strong>
-                            <div>São Paulo • Belo Horizonte • Remoto para todo o Brasil</div>
+                            <strong>Modelo comercial flexível</strong>
+                            <div>Projetos fechados, suporte sob demanda e alocação de analistas, conforme a sua necessidade.</div>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
                         <div>
-                            <strong>Garantia</strong>
-                            <div>Implantação acompanhada e aprovação final pelo seu time.</div>
+                            <strong>Parcerias para captação de projetos</strong>
+                            <div>Modelo comissionado por sucesso para especialistas em prospecção digital.</div>
                         </div>
                     </div>
                 </div>
@@ -994,19 +984,10 @@
         </div>
     </section>
 
-    <div class="mobile-cta-bar">
-        <div>
-            <strong>Pronto para acelerar seu CRM?</strong>
-            <p>Equipe CoreDB disponível para um diagnóstico rápido.</p>
-        </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn-primary" href="#contact" style="flex:1; justify-content:center;">Falar agora</a>
-            <a class="btn-ghost" href="tel:+5531999999999" style="flex:1; justify-content:center;">Ligar</a>
-        </div>
-    </div>
-
     <footer>
-        <div class="container">© 2024 CoreDB • Segurança, transparência e resultados em CRM</div>
+        <div class="container">
+            © 2024 CoreDB • Consultoria em TOTVS Protheus, RM, Fluig e Bancos de Dados
+        </div>
     </footer>
 </body>
 </html>
