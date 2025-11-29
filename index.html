@@ -416,6 +416,42 @@
             flex-wrap: wrap;
         }
 
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .policy-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 18px;
+            color: #e9edf5;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .policy-card h4 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .policy-card ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            padding: 0;
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .policy-card li::before {
+            content: "•";
+            color: var(--secondary);
+            margin-right: 6px;
+        }
+
         .contact {
             background: linear-gradient(135deg, rgba(29, 78, 216, 0.95), rgba(14, 165, 233, 0.9));
         }
@@ -658,11 +694,6 @@
                 padding: 24px;
                 gap: 20px;
             }
-
-            .testimonial {
-                padding: 24px;
-                gap: 20px;
-            }
         }
     </style>
 </head>
@@ -688,6 +719,7 @@
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#services">Serviços</a></li>
                 <li><a href="#process">Como Trabalhamos</a></li>
+                <li><a href="#privacidade">Privacidade</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
             <a
@@ -962,6 +994,44 @@
                         empresa.
                         <small>CoreDB • Consultoria especializada em TOTVS e Bancos de Dados</small>
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacidade">
+        <div class="container">
+            <div class="pill">Política e privacidade</div>
+            <h3 class="section-title">Protegemos o que você compartilha com a CoreDB</h3>
+            <p class="section-subtitle">
+                E-mails, mensagens e informações enviadas pelo formulário são usados apenas para responder à sua
+                demanda. Não vendemos, compartilhamos ou reutilizamos seus dados para fins diferentes do atendimento
+                solicitado.
+            </p>
+            <div class="policy-grid">
+                <div class="policy-card">
+                    <h4>Uso responsável</h4>
+                    <ul>
+                        <li>Dados coletados servem exclusivamente para retorno comercial e suporte.</li>
+                        <li>Equipe de atendimento tem acesso restrito e monitora o ciclo completo da conversa.</li>
+                        <li>Não realizamos campanhas ou envios automáticos sem seu consentimento.</li>
+                    </ul>
+                </div>
+                <div class="policy-card">
+                    <h4>Segurança e integridade</h4>
+                    <ul>
+                        <li>Envio do formulário passa por conexão segura (HTTPS) e é direcionado a caixas corporativas.</li>
+                        <li>Conteúdo é armazenado apenas pelo tempo necessário ao atendimento solicitado.</li>
+                        <li>Solicitações de correção ou exclusão podem ser feitas a qualquer momento.</li>
+                    </ul>
+                </div>
+                <div class="policy-card">
+                    <h4>Transparência</h4>
+                    <ul>
+                        <li>Informamos como o contato será usado antes de pedir mais dados sensíveis.</li>
+                        <li>Sem compartilhamento com terceiros, parceiros ou anúncios.</li>
+                        <li>Canal direto para dúvidas sobre privacidade: privacidade@coredb.com.br.</li>
+                    </ul>
                 </div>
             </div>
         </div>
