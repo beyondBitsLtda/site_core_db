@@ -894,7 +894,7 @@
         }
 
         .toast.is-visible {
-            transform: translateY(0);
+            transform: translate(-50%, 0);
             opacity: 1;
             pointer-events: auto;
         }
