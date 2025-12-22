@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <span class="toast__icon" aria-hidden="true">🎄</span>
       <div>
         <p class="toast__title">Feliz Natal!</p>
-        <p class="toast__message">Que sua operação siga estável e segura em 2024. Conte com a CoreDB para cuidar do seu TOTVS e banco de dados.</p>
+        <p class="toast__message">Que sua operação siga estável e segura em 2026. Conte com a CoreDB para cuidar do seu TOTVS e banco de dados.</p>
         <a class="toast__cta" href="#contact">Quero conhecer a CoreDB</a>
       </div>
     </div>
