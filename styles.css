@@ -635,6 +635,24 @@
             color: #e5edff;
         }
 
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 6px;
+        }
+
+        .contact-social {
+            min-width: 0;
+            white-space: nowrap;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-social:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.45);
+        }
+
         .contact-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.15);
