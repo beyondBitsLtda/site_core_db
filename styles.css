@@ -823,10 +823,50 @@
 
         footer {
             padding: 22px 0;
-            text-align: center;
             color: var(--muted);
             background: #0a1020;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), rgba(59, 130, 246, 0.12));
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+
+        .footer-social__link:hover,
+        .footer-social__link:focus-visible {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .footer-social__link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
         }
 
         /* --- CUBO PRINCIPAL (hero) --- */
