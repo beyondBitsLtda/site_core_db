@@ -6,7 +6,7 @@ const contactConfig = {
     cc: 'aGVucmlxdWUuYXJhdWpvQGNvcmVkYi5jb20uYnI=',
   },
   whatsapp: {
-    phone: 'NTUzODk5ODYyMjQyOA==',
+    phone: 'NTUzMTkxODczNDM1', // 55 31 9187-3435
   },
 };
 
