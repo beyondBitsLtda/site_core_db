@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecionando…</title>
-  <meta http-equiv="refresh" content="3; url=/" />
   <script>
     (() => {
       const normalizePath = (inputPath) =>
@@ -29,9 +28,9 @@
         }
       }
 
-      // Fallback para a página inicial
-      const fallback = basePrefix || '/';
-      window.location.replace(`${fallback}${search}${hash}`);
+      // Fallback para a página inicial usando o mesmo prefixo do repositório
+      const fallback = basePrefix || '.';
+      window.location.replace(`${fallback}/${search}${hash}`.replace(/\/\/+/, '/'));
     })();
   </script>
   <style>
@@ -98,7 +97,7 @@
   <div class="card">
     <div class="badge">Redirecionando</div>
     <h1>Estamos levando você para o lugar certo…</h1>
-    <p>Se o redirecionamento não acontecer automaticamente, <a href="/">clique aqui para voltar ao início</a>.</p>
+    <p>Se o redirecionamento não acontecer automaticamente, <a href="./">clique aqui para voltar ao início</a>.</p>
   </div>
 </body>
 </html>
