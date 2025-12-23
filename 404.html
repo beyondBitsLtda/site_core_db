@@ -16,19 +16,22 @@
       const hash = window.location.hash || '';
 
       const parts = path.split('/').filter(Boolean);
-      const [section, slug] = parts;
+      const servicosIndex = parts.indexOf('servicos');
+      const slug = servicosIndex >= 0 ? parts[servicosIndex + 1] : undefined;
+      const basePrefix = servicosIndex > 0 ? `/${parts.slice(0, servicosIndex).join('/')}` : '';
 
-      if (section === 'servicos') {
+      if (slug) {
         const known = ['dba', 'fluig', 'totvs-protheus', 'totvs-rm'];
         if (known.includes(slug)) {
-          const target = `/servicos/${slug}.html${search}${hash}`;
+          const target = `${basePrefix}/servicos/${slug}.html${search}${hash}`;
           window.location.replace(target);
           return;
         }
       }
 
       // Fallback para a página inicial
-      window.location.replace(`/${search}${hash}`);
+      const fallback = basePrefix || '/';
+      window.location.replace(`${fallback}${search}${hash}`);
     })();
   </script>
   <style>

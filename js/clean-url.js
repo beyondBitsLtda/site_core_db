@@ -7,7 +7,8 @@
 
   if (!pathname.endsWith('.html')) return;
 
-  const newUrl = `${cleanPath}${search}${hash}`;
+  const cleanPathname = pathname.replace(/\.html$/, '');
+  const newUrl = `${cleanPathname}${search}${hash}`;
 
   if (newUrl !== `${pathname}${search}${hash}`) {
     window.history.replaceState({}, '', newUrl);
